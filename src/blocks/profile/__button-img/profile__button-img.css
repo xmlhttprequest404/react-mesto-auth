@@ -1,0 +1,15 @@
+.profile__button-img {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  border: none;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}

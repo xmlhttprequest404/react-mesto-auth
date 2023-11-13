@@ -1,0 +1,18 @@
+.profile__text {
+  color: var(--color-light);
+  font-family: 'Inter', 'Verdana', sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  margin: -6px 0 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .profile__text {
+    font-size: 14px;
+    text-align: center;
+    margin: -26px 0 0 28px;
+  }
+}

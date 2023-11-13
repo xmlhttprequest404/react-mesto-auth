@@ -1,0 +1,10 @@
+.popup__error_visible {
+  display: block;
+  font-family: 'Inter', 'Verdana', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: red;
+  position: absolute;
+  top: 32px;
+  left: 0;
+}

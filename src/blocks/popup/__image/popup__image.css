@@ -1,0 +1,18 @@
+.popup__image {
+  max-height: 75vh;
+  max-width: 100%;
+  width: unset;
+  height: unset;
+  margin-bottom: 7px;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+@media (max-width: 767px) {
+  .popup__image {
+      min-width: unset;
+  }
+}

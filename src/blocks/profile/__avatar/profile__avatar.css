@@ -1,0 +1,9 @@
+.profile__avatar {
+  /*background: url('../../../images/profile-image.jpg') center/contain no-repeat;*/
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  margin: 0;
+  z-index: 0;
+}

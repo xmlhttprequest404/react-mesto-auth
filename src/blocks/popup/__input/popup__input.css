@@ -1,0 +1,17 @@
+.popup__input {
+  font-family: 'Inter', 'Verdana', sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  max-width: 358px;
+  max-height: 27px;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: 0 0 13px 2px;
+}
+
+.popup__input::placeholder {
+  color: #c4c4c4;
+}

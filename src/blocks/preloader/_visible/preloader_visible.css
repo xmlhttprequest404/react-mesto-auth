@@ -1,0 +1,14 @@
+.preloader_visible {
+  display: inline;
+  opacity: 1;
+  animation: anim 1s ease-in-out infinite forwards;
+}
+
+@keyframes anim {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

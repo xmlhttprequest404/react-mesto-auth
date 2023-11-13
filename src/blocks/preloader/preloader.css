@@ -1,0 +1,7 @@
+.preloader {
+  display: none;
+}
+
+.preloader i::after {
+  content: '...';
+}

@@ -1,0 +1,26 @@
+.footer__copyright {
+  color: #545454;
+  font-size: 18px;
+  font-family: 'Inter', 'Verdana', sans-serif;
+  line-height: 18px;
+  margin: 0 auto 0;
+  max-width: 880px;
+}
+
+@media (max-width: 1023px) {
+  .footer__copyright {
+    max-width: 817px;
+    min-width: 714px;
+    width: 92.5%;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer__copyright {
+    max-width: 400px;
+    min-width: 282px;
+    width: 52.154%;
+    font-size: 14px;
+    line-height: 14px;
+  }
+}

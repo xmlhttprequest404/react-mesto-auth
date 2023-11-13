@@ -1,0 +1,11 @@
+.element__text {
+  font-family: 'Inter', 'Verdana', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: normal;
+  max-width: 218px;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

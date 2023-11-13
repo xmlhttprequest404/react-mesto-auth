@@ -1,0 +1,29 @@
+.popup__submit {
+  font-family: 'Inter', 'Verdana', sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  border: none;
+  border-radius: 2px;
+  box-sizing: border-box;
+  max-width: 358px;
+  min-height: 50px;
+  text-align: center;
+  padding: 0;
+  opacity: 1;
+  transition: opacity 0.15s linear;
+  pointer-events: all;
+}
+
+.popup__submit:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .popup__submit {
+    min-height: 46px;
+    font-size: 14px;
+  }
+}

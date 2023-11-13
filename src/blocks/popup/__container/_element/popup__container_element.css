@@ -1,0 +1,15 @@
+.popup__container_element {
+    display: block;
+    max-width: 75vw;
+    max-height: 75vh;
+    box-sizing: border-box;
+    width: unset;
+}
+
+@media (max-width: 767px) {
+    .popup__container_element {
+        min-width: unset;
+        top: 14.5px;
+    }
+    
+}
