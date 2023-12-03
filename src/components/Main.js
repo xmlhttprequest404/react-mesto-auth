@@ -2,9 +2,10 @@ import {useContext} from "react";
 import Card from "./Card.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
-function Main ({onEditAvatar, onAddPlace, onEditProfile, onCardClick, onCardLike, onCardDeleteClick, cards, setCards }) {
+function Main ({ onEditAvatar, onAddPlace, onEditProfile, onCardClick, onCardLike, onCardDeleteClick, cards, setCards }) {
 
   const currentUser = useContext(CurrentUserContext);
+  //setHeaderText(`${currentUser.name}@gmail.com`);
 
   return (
     <>

@@ -1,0 +1,23 @@
+.authorization__submit {
+  width: 100%;
+  border: none;
+  height: 50px;
+  border-radius: 2px;
+  background-color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  font-style: normal;
+  color: black;
+  opacity: 1;
+  transition: opacity 0.15s linear;
+  pointer-events: all;
+  margin: 196px 0 0 0;
+  font-family: 'Inter', 'Verdana', sans-serif;
+}
+
+.authorization__submit:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

@@ -53,4 +53,15 @@
 @import url(./blocks/popup/__submit/_place/popup__submit_place_avatar.css);
 @import url(./blocks/preloader/preloader.css);
 @import url(./blocks/preloader/_visible/preloader_visible.css);
+@import url(./blocks/authorization/authorization.css);
+@import url(./blocks/authorization/__form/authorization__form.css);
+@import url(./blocks/authorization/__title/authorization__title.css);
+@import url(./blocks/authorization/__set/authorization__set.css);
+@import url(./blocks/authorization/__field/authorization__field.css);
+@import url(./blocks/authorization/__input/authorization__input.css);
+@import url(./blocks/authorization/__input/_name/authorization__input_name.css);
+@import url(./blocks/authorization/__input/_occupation/authorization__input_occupation.css);
+@import url(./blocks/authorization/__submit/authorization__submit.css);
+@import url(./blocks/header/__nav/header__nav.css);
+@import url(./blocks/header/__exit-button/header__exit-button.css);
 

@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Header from "./Header.js";
 import Main from "./Main.js"
 import Footer from "./Footer.js";
+import Login from "./Login.js";
 import ImagePopup from "./ImagePopup.js";
 import api from "../utils/Api.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
@@ -10,6 +12,7 @@ import EditAvatarPopup from "./EditAvatarPopup.js";
 import AddPlacePopup from "./AddPlacePopup.js";
 import DeletePopup from "./DeletePopup.js";
 import { validationConfigContext, validationConfig } from "../contexts/validationConfigContext.js";
+import Registration from "./Registration.js";
 
 function App() {
 
@@ -23,7 +26,12 @@ function App() {
   const [cards, setCards] = useState([]);
   const [cardForDel, setCardForDel] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //const [headerText, setHeaderText] = useState('');
 
+  function handleLogout () {
+    setIsLoggedIn(false);
+  }
 
   function handleCloseByOverlay (isItOverlay) {
     isItOverlay && closeAllPopups();
@@ -155,9 +163,13 @@ function App() {
 
   return (
     <>
-    <CurrentUserContext.Provider value={currentUser}>
-    <Header />
-    <Main onEditProfile={handleEditProfileClick}
+      <CurrentUserContext.Provider value={currentUser}>
+
+      <Routes>
+        <Route path="/" element={ isLoggedIn ?
+          <>
+          <Header onLogout={handleLogout} isLoggedIn={isLoggedIn} headerText={`${currentUser.name}@gmail.com`}/>
+          <Main onEditProfile={handleEditProfileClick}
           onAddPlace={handleAddPlaceClick}
           onEditAvatar={handleEditAvatarClick}
           onCardClick={handleCardClick}
@@ -165,34 +177,53 @@ function App() {
           onCardDeleteClick={handleDeleteClick}
           cards={cards}
           setCards={setCards}
+          //setHeaderText={setHeaderText}
           />
-    <Footer />
-    <validationConfigContext.Provider value={validationConfig}>
-      <EditProfilePopup isOpen={isEditProfilePopupOpen}
-                        onOverlayClick={handleCloseByOverlay}
-                        onClose={closeAllPopups}
-                        onUpdateUser={({name, about:description}) => {handleUpdateUser({name, about:description})}}
-                        loadIndicator={isLoading} />
-      <EditAvatarPopup isOpen={isEditAvatarPopupOpen}
+          <Footer />
+        </>
+        : <Navigate to="/sign-in" replace />
+        } />
+        <Route path="/sign-up" element={
+          <>
+            <Header isLoggedIn={isLoggedIn} headerText={'Войти'}/>
+            <Registration />
+          </>
+        }/>
+        <Route path="/sign-in" element={
+          <>
+            <Header isLoggedIn={isLoggedIn} headerText={'Регистрация'}/>
+            <Login />
+          </>
+        } />
+      </Routes>
+
+
+      <validationConfigContext.Provider value={validationConfig}>
+        <EditProfilePopup isOpen={isEditProfilePopupOpen}
+                          onOverlayClick={handleCloseByOverlay}
+                          onClose={closeAllPopups}
+                          onUpdateUser={({name, about:description}) => {handleUpdateUser({name, about:description})}}
+                          loadIndicator={isLoading} />
+        <EditAvatarPopup isOpen={isEditAvatarPopupOpen}
+                         onOverlayClick={handleCloseByOverlay}
+                         onClose={closeAllPopups}
+                         onUpdateAvatar={({avatar:avatarRef})=>{handleUpdateAvatar({avatar:avatarRef})}}
+                         loadIndicator={isLoading} />
+        <AddPlacePopup isOpen={isAddPlacePopupOpen}
                        onOverlayClick={handleCloseByOverlay}
                        onClose={closeAllPopups}
-                       onUpdateAvatar={({avatar:avatarRef})=>{handleUpdateAvatar({avatar:avatarRef})}}
+                       onAddPlace={({name, url}) => {handleAddPlaceSubmit({name, link:url})}}
                        loadIndicator={isLoading} />
-      <AddPlacePopup isOpen={isAddPlacePopupOpen}
-                     onOverlayClick={handleCloseByOverlay}
-                     onClose={closeAllPopups}
-                     onAddPlace={({name, url}) => {handleAddPlaceSubmit({name, link:url})}}
-                     loadIndicator={isLoading} />
-    </validationConfigContext.Provider>
-    <DeletePopup isOpen={isDeletePopupOpen}
-                 onOverlayClick={handleCloseByOverlay}
-                 onClose={closeAllPopups}
-                 onDeleteCard={handleCardDelete}
-                 loadIndicator={isLoading}/>
-    <ImagePopup card={selectedCard}
-                onOverlayClick={handleCloseByOverlay}
-                onClose={closeAllPopups} />
-    </CurrentUserContext.Provider>
+      </validationConfigContext.Provider>
+      <DeletePopup isOpen={isDeletePopupOpen}
+                   onOverlayClick={handleCloseByOverlay}
+                   onClose={closeAllPopups}
+                   onDeleteCard={handleCardDelete}
+                   loadIndicator={isLoading}/>
+      <ImagePopup card={selectedCard}
+                  onOverlayClick={handleCloseByOverlay}
+                  onClose={closeAllPopups} />
+      </CurrentUserContext.Provider>
     </>
   );
 }
